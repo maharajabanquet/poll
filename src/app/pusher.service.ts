@@ -6,7 +6,7 @@ declare const promisify: any;
 @Injectable()
 export class PusherService {
   constructor() {
-    var pusher = new Pusher(environment.pusherKey, {
+    var pusher = new Pusher('<PUSHER_KEY>', {
       cluster: 'eu',
       encrypted: true,
     });
