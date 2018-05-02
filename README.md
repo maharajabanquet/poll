@@ -1,10 +1,31 @@
-# AngularPusherPolls
+# Angular-pusher-polls
+Angular application that enables users vote in realtime
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+## Prerequisites
+- Angular
+- Express
+- Pusher
+- Chart.js
+- A [Pusher account](https://pusher.com/signup) and [Pusher app credentials](http://dashboard.pusher.com/)
 
-## How To
-* Get your pusher keys from your profile.
-* Create a file named `.env` and place your appId, keys and secret there.
-* Include your pusher key in the `environment.ts` and `environment.prod.ts` files
-* Run `npm start` to start server and run the angular app
 
+## Getting started
+Clone the project and install dependencies:
+
+
+Copy the following to a `.env` file. Add your Pusher app credentials to this file:
+```
+PUSHER_APP_ID=your-app-id
+PUSHER_APP_KEY=your-app-key
+PUSHER_APP_SECRET=your-app-secret
+```
+
+```
+git clone https://github.com/christiannwamba/angular-pusher-polls.git
+cd angular-pusher-polls && npm install && npm start
+```
+
+## Built With
+
+* [Pusher](https://pusher.com/) - APIs to enable devs building realtime features
+* [Angular](http://angular.io)
