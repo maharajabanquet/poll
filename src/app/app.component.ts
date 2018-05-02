@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
 
   castVote(player) {
     this.http
-      .post(`${environment.apiUrl}vote`, { player })
+      .post('http://localhost:4000/vote', { player })
       .subscribe((res: any) => {
         this.vote = res.player;
         this.voted = true;
