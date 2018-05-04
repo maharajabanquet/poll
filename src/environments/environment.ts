@@ -5,6 +5,4 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:4000/',
-  // include your pusher key here
 };

@@ -24,7 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/results', (req, res) => {});
 app.post('/vote', (req, res) => {
   const { body } = req;
   const { player } = body;
