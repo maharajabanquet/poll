@@ -10,12 +10,19 @@ export class PusherService {
       useTLS: true
     });
     this.channel = pusher.subscribe('vote-channel');
-    console.log("CHANNEL ", this.channel);
+    
+    
+    this.stopchannel = pusher.subscribe('stop-channel');
     
   }
   channel
+  stopchannel
 
   public init() {
     return this.channel;
+  }
+
+  public stop() {
+    return this.stopchannel;
   }
 }

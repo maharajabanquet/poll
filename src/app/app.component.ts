@@ -228,7 +228,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.clear();
+   
     console.log("HERE", this.voteCount)
     const channel = this.pusher.init();
     channel.bind('vote', ({ player }) => {
@@ -239,6 +239,13 @@ export class AppComponent implements OnInit {
     
       // this.chartData = Object.values(this.voteCount);
     });
+
+    const stopchannel = this.pusher.stop();
+    stopchannel.bind('stop', ({ player }) => {
+    this.votedArray = [];
+    window.location.reload();
+    localStorage.clear();
+    });
   }
 
   showResult() {
@@ -248,7 +255,6 @@ export class AppComponent implements OnInit {
         sortable.push({person: votedPerson, vote: this.voteCount[votedPerson], percent: `${this.voteCount[votedPerson]}%`});
     }
       sortable.sort(function(a, b) {
-        
           return b['vote'] - a['vote'];
       });
       this.votedArray = sortable;
@@ -260,8 +266,15 @@ export class AppComponent implements OnInit {
   }
 
   clear() {
-    localStorage.clear();
-    window.location.reload();
+
+    this.http
+      .post('http://13.233.106.34:4000/stop', '')
+      .subscribe((res: any) => {
+     
+      });
+   
+    
+    // window.location.reload();
   }
 
   getColor(i) {

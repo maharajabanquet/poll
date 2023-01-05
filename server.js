@@ -42,6 +42,15 @@ app.post('/vote', (req, res) => {
   res.json({ player });
 });
 
+app.post('/stop', (req, res) => {
+  const player = false;
+
+  pusher.trigger('stop-channel', 'stop', {
+    player,
+  });
+  res.json({ player });
+});
+
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
