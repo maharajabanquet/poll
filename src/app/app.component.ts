@@ -176,7 +176,7 @@ export class AppComponent implements OnInit {
 
   castVote(player) {
     this.http
-      .post('http://localhost:4000/vote', { player })
+      .post('http://13.233.106.34:4000/vote', { player })
       .subscribe((res: any) => {
         this.vote = res.player;
         this.voted = true;
