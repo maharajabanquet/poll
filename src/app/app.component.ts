@@ -228,11 +228,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(localStorage.getItem('vote')) {
-      this.voteCount = JSON.parse(localStorage.getItem('vote'));
-      this.showResult();
-    }
-
+    localStorage.clear();
     console.log("HERE", this.voteCount)
     const channel = this.pusher.init();
     channel.bind('vote', ({ player }) => {
