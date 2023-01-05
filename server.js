@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const Pusher = require('pusher');
 
 const app = express();
-const port = 4000;
+const port = 80;
 const pusher = new Pusher({
   appId: "1533923",
   key: "adbc79a96fd70e8c634d",
