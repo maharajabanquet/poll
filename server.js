@@ -6,9 +6,11 @@ const Pusher = require('pusher');
 const app = express();
 const port = 4000;
 const pusher = new Pusher({
-  appId: "1533923",
-  key: "adbc79a96fd70e8c634d",
-  secret: "a65337e93e21dbd34af2",
+ appId: process.env.PUSHER_APP_ID,
+  key: process.env.PUSHER_KEY,
+  secret: process.env.PUSHER_SECRET,
+  cluster: 'eu',
+  encrypted: true,
   cluster: "ap2",
   useTLS: true
 });
