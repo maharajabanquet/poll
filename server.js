@@ -6,12 +6,14 @@ const Pusher = require('pusher');
 const app = express();
 const port = process.env.PORT || 4000;
 const pusher = new Pusher({
-  appId: process.env.PUSHER_APP_ID,
-  key: process.env.PUSHER_KEY,
-  secret: process.env.PUSHER_SECRET,
-  cluster: 'eu',
-  encrypted: true,
+  appId: "1533923",
+  key: "adbc79a96fd70e8c634d",
+  secret: "a65337e93e21dbd34af2",
+  cluster: "ap2",
+  useTLS: true
 });
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,6 +33,7 @@ app.post('/vote', (req, res) => {
   pusher.trigger('vote-channel', 'vote', {
     player,
   });
+  console.log(player);
   res.json({ player });
 });
 

@@ -1,17 +1,45 @@
-<div>
-  <h2>Vote for your player of the season</h2>
+<div class="div_left">
+  <h2>Vote For The Best
+  </h2>
   <ul>
     <li *ngFor="let player of playerData">
-      <img [src]="player.image" [alt]="player.name" (click)="castVote(player.shortName)" [ngClass]="getVoteClasses(player.shortName)">
+      <img [src]="player.image" [alt]="player.name" (click)="castVote(player.shortName)"
+        [ngClass]="getVoteClasses(player.shortName)">
       <h4>{{player.name}}</h4>
-      <p>{{player.goals}} goals</p>
-      <p>{{player.assists}} assists</p>
+
     </li>
 
   </ul>
 
-  <div class="chart-box" *ngIf="voted">
-    <h2>How others voted</h2>
-    <canvas baseChart [data]="chartData" [labels]="chartLabels" [chartType]="chartType"></canvas>
+
+  <!-- <h2>RESULTS: </h2>
+  <div *ngFor="let person of votedArray">
+    Name: {{person.person}} - Vote: {{person.vote}}
   </div>
+</div> -->
+
+
+<div class="rightContainer" *ngIf="votedArray && votedArray.length > 0">
+
+
+  <div class="card-one">
+
+    <h3 style="text-align: center;margin-left:0;" (dblclick)="clear()">RESULTS</h3>
+
+    <div class="container" *ngFor="let votes of votedArray, let i = index;">
+
+      <div class="topLabels">
+
+        <label>{{i+1}}. {{votes.person}}</label>
+      </div>
+      <div class="progress">
+        <div class="bar one" [ngStyle]="{'width': votes.percent}"></div>
+      </div>
+
+      <label>{{votes.vote}} votes</label>
+    </div>
+   
+  </div>
+
+
 </div>
