@@ -26,6 +26,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(process.cwd()+"/dist/"));
+app.get('/booking', (req,res) => {
+    res.sendFile(process.cwd()+"/dist/index.html")
+  });
+
 app.post('/vote', (req, res) => {
   const { body } = req;
   const { player } = body;

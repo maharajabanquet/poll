@@ -230,5 +230,17 @@ export class AppComponent implements OnInit {
 
   clear() {
     localStorage.clear();
+    window.location.reload();
+  }
+
+  getColor(i) {
+    switch (i) {
+      case 0:
+        return '#D4AF37';
+      case 1:
+        return '#C0C0C0';
+      case 2:
+        return '#CD7F32';
+    }
   }
 }

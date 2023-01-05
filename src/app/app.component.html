@@ -1,5 +1,5 @@
 <div class="div_left">
-  <h2>Vote For The Best
+  <h2 >* Vote For The Best *
   </h2>
   <ul>
     <li *ngFor="let player of playerData">
@@ -30,7 +30,7 @@
 
       <div class="topLabels">
 
-        <label>{{i+1}}. {{votes.person}}</label>
+        <label [ngStyle]="{'color':getColor(i), 'font-weight': 'bolder'}">{{i+1}}. {{votes.person}}</label>
       </div>
       <div class="progress">
         <div class="bar one" [ngStyle]="{'width': votes.percent}"></div>
