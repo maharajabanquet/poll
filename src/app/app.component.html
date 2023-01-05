@@ -3,7 +3,7 @@
   </h2>
   <ul>
     <li *ngFor="let player of playerData">
-      <img [src]="player.image" [alt]="player.name" (click)="castVote(player.shortName)"
+      <img  [src]="player.image" [alt]="player.name" (click)="castVote(player.shortName)"
         [ngClass]="getVoteClasses(player.shortName)">
       <h4>{{player.name}}</h4>
 

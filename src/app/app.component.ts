@@ -142,12 +142,44 @@ export class AppComponent implements OnInit {
         '../assets/team/Vibha Jain.jpg',
     },
     {
-      name: "Vishal Shah",
+      name: "Daffa Ardana",
       goals: 10,
       assists: 17,
-      shortName: 'Vishal Shah',
+      shortName: 'Daffa Ardana',
       image:
-        '../assets/team/Vishal Shah.png',
+        '../assets/team/unknown.png',
+    },
+    {
+      name: "Bayanda Mthembu",
+      goals: 10,
+      assists: 17,
+      shortName: 'Bayanda Mthembu',
+      image:
+        '../assets/team/unknown.png',
+    },
+    {
+      name: "Rahil Desai",
+      goals: 10,
+      assists: 17,
+      shortName: 'Rahil Desai',
+      image:
+        '../assets/team/unknown.png',
+    },
+    {
+      name: "Selin Aydogan",
+      goals: 10,
+      assists: 17,
+      shortName: 'Selin Aydogan',
+      image:
+        '../assets/team/unknown.png',
+    },
+    {
+      name: "Yasmin Khatun",
+      goals: 10,
+      assists: 17,
+      shortName: 'Yasmin Khatun',
+      image:
+        '../assets/team/unknown.png',
     },
   ];
   voteCount = {
@@ -175,12 +207,16 @@ export class AppComponent implements OnInit {
   chartType = 'doughnut';
 
   castVote(player) {
+    if(localStorage.getItem('voted')) {
+      alert("You have already voted !!!");
+      return;
+    }
     this.http
-      .post('http://13.233.106.34:4000/vote', { player })
+      .post('http://13.233.106.34:4000/', { player })
       .subscribe((res: any) => {
         this.vote = res.player;
         this.voted = true;
-       
+        localStorage.setItem('voted', 'true');
       });
   }
 
@@ -196,7 +232,6 @@ export class AppComponent implements OnInit {
       this.voteCount = JSON.parse(localStorage.getItem('vote'));
       this.showResult();
     }
-   
 
     console.log("HERE", this.voteCount)
     const channel = this.pusher.init();
