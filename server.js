@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(process.cwd()+"/dist/"));
-app.get('/booking', (req,res) => {
+app.get('/', (req,res) => {
     res.sendFile(process.cwd()+"/dist/index.html")
   });
 
